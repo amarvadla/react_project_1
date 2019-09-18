@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Title from './Title';
 import PhotoWall from './photowall'
+import AddPhoto from './AddPhoto'
+import { Route } from 'react-router-dom'
 
 class Main extends Component {
 
@@ -20,18 +22,31 @@ class Main extends Component {
        }
 
 
-       componentDidMount(){
+       componentDidMount() {
               const data = fetchData();
               this.setState(() => ({
-                     posts : data
+                     posts: data
               }))
        }
 
        render() {
-              return <div>
-                     <Title title={"PhotoWall"} />
-                     <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}></PhotoWall>
-              </div>
+              return (
+                     <div>
+                            <Route exact path='/' render={() => (
+                                   <div>
+                                          <Title title={"PhotoWall"} />
+                                          <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}></PhotoWall>
+                                   </div>
+                            )} />
+
+                            <Route path="/AddPhoto" render={() => (
+                                   <div>
+                                          <AddPhoto />
+                                   </div>
+                            )} />
+                     </div>
+
+              )
        }
 }
 

@@ -55,3 +55,11 @@ h1 {
     font-family: 'billabong';
     src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf");
 }
+
+.addIcon{
+    margin : 20px auto;
+    display: table;
+    padding : 40px;
+    background-size: contain;
+    border: none;
+}
