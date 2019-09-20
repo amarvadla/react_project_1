@@ -1,12 +1,19 @@
 import Main from './Main'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../redux/action'
+import { withRouter} from 'react-router'
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        posts : state
+        posts: state
     }
 }
 
-const App = connect(mapStateToProps)(Main)
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actions,dispatch)
+}
+
+const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))
 
 export default App
