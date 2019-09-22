@@ -1,14 +1,22 @@
 
-export function removePosts(index){
-    return{
-        type : 'REMOVE_POST',
+export function removePosts(index) {
+    return {
+        type: 'REMOVE_POST',
         index
     }
 }
 
-export function addPost(post){
+export function addPost(post) {
     return {
-        type : 'ADD_POST',
+        type: 'ADD_POST',
         post
+    }
+}
+
+export function addComment(comment, postId) {
+    return {
+        type: 'ADD_COMMENT',
+        comment,
+        postId
     }
 }
